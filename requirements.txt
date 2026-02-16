@@ -1,0 +1,13 @@
+dvc
+imblearn
+ipykernel
+matplotlib
+mlflow
+numpy
+optuna
+pandas
+pydantic
+pyyaml
+scikit-learn
+seaborn
+xgboost
