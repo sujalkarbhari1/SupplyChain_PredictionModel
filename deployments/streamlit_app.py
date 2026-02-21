@@ -2,12 +2,6 @@ import streamlit as st
 import pandas as pd
 import pickle
 
-# -------------------------------
-# 1️⃣ Load the trained model
-# -------------------------------
-
-import pickle
-
 model_path = r"C:\SupplyChain_PredictionModel\research\best_model.pkl"
 preprocessor_path = r"C:\SupplyChain_PredictionModel\research\preprocessor.pkl"
 
@@ -19,33 +13,21 @@ with open(preprocessor_path, "rb") as f:
 
 st.title("Supply Chain - Late Delivery Risk Prediction")
 
-
-# -------------------------------
-# 2️⃣ Numeric inputs
-# -------------------------------
-
 # Define min, max, step for sliders
 numeric_cols = {
-    'Days_for_shipping_(real)': (0, 6, 3),                      # int
-    'Days_for_shipment_(scheduled)': (0, 4, 2),                  # int
-    'Benefit_per_order': (-4300.0, 920.0, 22.0),                 # float
-    'Sales_per_customer': (7.0, 1940.0, 183.0),                  # float
-    'Order_Item_Discount': (0.0, 500.0, 20.0),                   # float
-    'Order_Item_Product_Price': (10.0, 2000.0, 141.0),           # float
-    'Order_Item_Profit_Ratio': (-3.0, 1.0, 0.12),                # float
-    'Order_Item_Quantity': (1, 5, 2),                            # int
-    'Sales': (10.0, 2000.0, 203.0),                               # float
-    'Order_Item_Total': (7.0, 1940.0, 183.0),                     # float
-    'Order_Profit_Per_Order': (-4300.0, 920.0, 22.0),             # float
-    'Product_Price': (10.0, 2000.0, 141.0)                        # float
+    'Days_for_shipping_(real)': (0, 6, 3),                      
+    'Days_for_shipment_(scheduled)': (0, 4, 2),                 
+    'Benefit_per_order': (-4300.0, 920.0, 22.0),                 
+    'Sales_per_customer': (7.0, 1940.0, 183.0),                  
+    'Order_Item_Discount': (0.0, 500.0, 20.0),                   
+    'Order_Item_Product_Price': (10.0, 2000.0, 141.0),           
+    'Order_Item_Profit_Ratio': (-3.0, 1.0, 0.12),                
+    'Order_Item_Quantity': (1, 5, 2),                            
+    'Sales': (10.0, 2000.0, 203.0),                              
+    'Order_Item_Total': (7.0, 1940.0, 183.0),                    
+    'Order_Profit_Per_Order': (-4300.0, 920.0, 22.0),            
+    'Product_Price': (10.0, 2000.0, 141.0)                       
 }
-
-
-
-
-# -------------------------------
-# 3️⃣ Categorical inputs
-# -------------------------------
 
 categorical_cols = {
     'Type': ["TRANSFER","CASH","DEBIT","PAYMENT"], 
