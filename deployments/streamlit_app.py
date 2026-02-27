@@ -11,7 +11,7 @@ with open(model_path, "rb") as f:
 with open(preprocessor_path, "rb") as f:
     preprocessor = pickle.load(f)
 
-st.title("Supply Chain - Late Delivery Risk Prediction")
+st.title("Supply Chain Late Delivery Risk Prediction Dashboard")
 
 # Define min, max, step for sliders
 numeric_cols = {
@@ -47,8 +47,27 @@ categorical_cols = {
 
 # Collect numeric inputs
 numeric_input = {}
+valid = True
+
 for col, (min_val, max_val, default) in numeric_cols.items():
-    numeric_input[col] = st.slider(col, min_value=min_val, max_value=max_val, value=default)
+    user_value = st.text_input(col, value=str(default))
+    
+    try:
+        num_value = float(user_value)
+        
+        if not (min_val <= num_value <= max_val):
+            st.warning(f"{col} must be between {min_val} and {max_val}")
+            valid = False
+        else:
+            numeric_input[col] = num_value
+            
+    except ValueError:
+        st.warning(f"{col} must be a valid number")
+        valid = False
+
+# Only allow prediction if all inputs valid
+if valid:
+    st.success("All inputs are valid")
 
 # Collect categorical inputs
 categorical_input = {}
