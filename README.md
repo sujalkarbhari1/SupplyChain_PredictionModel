@@ -1,6 +1,8 @@
 # Supply Chain Late Delivery Risk Prediction Model
 
-![alt text](image.png)
+![Uploading image.png…]()
+
+
 
 The objective is to classify whether an order has a Late Delivery Risk (Late_delivery_risk).
 
