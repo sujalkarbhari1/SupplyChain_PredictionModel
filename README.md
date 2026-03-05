@@ -1,6 +1,6 @@
 # Supply Chain Late Delivery Risk Prediction Model
 
-![Uploading image.png…]()
+![alt_text](image.png)
 
 
 
